@@ -1,7 +1,3 @@
-/* This takes care of the server side calls
-*
-*
-*/
 
 var express = require('express');
 var app = express();
@@ -46,7 +42,8 @@ app.post('/add', apiLimiter, function (req, res) {
   // });
   //send a confirmation back
   // res.end( JSON.stringify(data));
-  res.send('api/add');
+  // res.send({ message: 'success' });
+  res.end("api/add");
 });
 
 var server = app.listen(8081, function () {
@@ -54,6 +51,6 @@ var server = app.listen(8081, function () {
   var host = server.address().address
   var port = server.address().port
 
-  console.log("Example app listening at http://localhost", host, port)
+  console.log("Listening at http://localhost", host, port)
 
 });
