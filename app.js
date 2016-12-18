@@ -9,20 +9,21 @@
 
 
 // call the packages we need
-var express    = require('express');        // call express
-var app        = express();                 // define our app using express
-var bodyParser = require('body-parser');
+var express         = require('express');        // call express
+var app             = express();                 // define our app using express
+var bodyParser      = require('body-parser');
+var httpProxy       = require('http-proxy');
 
 //setup the database
-var fs = require("fs");
-var Engine = require('tingodb')();
-var database = new Engine.Db(__dirname + '/db',{});
+var fs              = require("fs");
+var Engine          = require('tingodb')();
+var database        = new Engine.Db(__dirname + '/db',{});
 //the leaderboard database
 //this is the first leaderboard we created
 var firstleaderboard = database.collection('firstleaderboard');
 
 //set up the repo limit
-var RateLimit = require('express-rate-limit');
+var RateLimit       = require('express-rate-limit');
 
 var apiLimiter = new RateLimit({
   windowMs: 60*60*1000, // 1 hour window
@@ -202,7 +203,13 @@ router.route('/player/:player_name').delete(function(req, res) {
 // all of our routes will be prefixed with /api
 app.use('/api', router);
 
+//
+// Create your proxy server and set the target in the options.
+//
+httpProxy.createProxyServer({target:'http://localhost:8080'}).listen(9000); // See (†)
+
 // START THE SERVER
 // =============================================================================
 app.listen(port);
 console.log('listening at http://localhost:' + port);
+console.log('proxy at port: 9000');
