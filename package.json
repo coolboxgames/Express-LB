@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "test": "./node_modules/jshint/bin/jshint app.js"
+    "test": "./node_modules/jshint/bin/jshint app.js",
+    "forever": "forever start app.js"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
