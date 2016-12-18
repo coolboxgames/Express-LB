@@ -33,7 +33,7 @@ var apiLimiter = new RateLimit({
 });
 
 //use this is on heroku
-// app.enable('trust proxy');
+app.enable('trust proxy');
 
 // only apply to requests that begin with /api/
 app.use('/api/', apiLimiter);
