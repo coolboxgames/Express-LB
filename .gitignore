@@ -26,6 +26,8 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
+# remove the database so when deployed it creates new ones
+db
 
 # Optional npm cache directory
 .npm
