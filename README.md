@@ -1,6 +1,8 @@
 # Express-LB - Engine Agnostic
 A leaderboard for video games made in expressjs. Pretty simple Rest API for video games that can be used in any engine.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ###API
 
 - /api/players/:count_num - get - returns an array of players
@@ -11,4 +13,3 @@ A leaderboard for video games made in expressjs. Pretty simple Rest API for vide
 
 Everything will return a JSON object.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
