@@ -1,4 +1,4 @@
-# Express-LB - Engine Agnostic
+# Express-Leaderboards - Rest-API
 A leaderboard for video games made in expressjs. Pretty simple Rest API for video games that can be used in any engine.
 
 [![Build Status](https://travis-ci.org/kinifi/Express-LB.svg?branch=master)](https://travis-ci.org/kinifi/Express-LB)
