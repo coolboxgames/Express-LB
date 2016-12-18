@@ -10,3 +10,5 @@ A leaderboard for video games made in expressjs. Pretty simple Rest API for vide
 - /api/players/:player_name - delete - delete a new player. returns 'success'
 
 Everything will return a JSON object.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
