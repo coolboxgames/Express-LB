@@ -23,9 +23,7 @@ var firstleaderboard = database.collection('firstleaderboard');
 
 //set up the repo limit
 var RateLimit = require('express-rate-limit');
-//use this is on heroku
-// app.enable('trust proxy');
-//create an api limiter
+
 var apiLimiter = new RateLimit({
   windowMs: 60*60*1000, // 1 hour window
   // delayAfter: 1, // begin slowing down responses after the first request
@@ -33,6 +31,13 @@ var apiLimiter = new RateLimit({
   max: 100, // start blocking after 5 requests
   message: "Too many accounts created from this IP, please try again after an hour"
 });
+
+//use this is on heroku
+// app.enable('trust proxy');
+
+// only apply to requests that begin with /api/
+app.use('/api/', apiLimiter);
+
 
 
 // configure app to use bodyParser()
@@ -55,9 +60,6 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working
 //(accessed at GET http://localhost:8080/api)
-router.get('/', apiLimiter, function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });
-});
 
 //add a player to the database with its score
 router.route('/player').post(function(req, res) {
