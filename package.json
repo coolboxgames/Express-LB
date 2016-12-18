@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "start": "node server.js",
     "test": "./node_modules/jshint/bin/jshint app.js"
   },
   "dependencies": {
