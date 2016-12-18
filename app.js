@@ -76,7 +76,7 @@ router.route('/player').post(function(req, res) {
     }, function(err, result) {
         //if error send the error message
         if(err){
-          console.log(err)
+          console.log(err);
           res.json({ message: 'error saving score', error: err});
         }
         else {
